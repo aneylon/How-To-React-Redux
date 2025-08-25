@@ -3,6 +3,7 @@ import Loading from "./Components/Loading/Loading";
 import CacheBuster from "react-cache-buster";
 // import { version } from "../package.json";
 import packageFile from "../package.json";
+import { Todo } from "./Components/Todo/Todo";
 
 function App() {
   const isProduction = process.env.NODE_ENV === "production";
@@ -18,7 +19,7 @@ function App() {
       metaFileDirectory={"."}
     >
       <div className="App">
-        <Loading />
+        <Todo />
       </div>
     </CacheBuster>
   );
