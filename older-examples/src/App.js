@@ -11,17 +11,17 @@ function App() {
   console.log(isProduction, version);
 
   return (
-    <CacheBuster
-      currentVersion={version}
-      isEnabled={isProduction}
-      isVerboseMode={true}
-      loadingComponent={<Loading />}
-      metaFileDirectory={"."}
-    >
-      <div className="App">
-        <Todo />
-      </div>
-    </CacheBuster>
+    // <CacheBuster
+    //   currentVersion={version}
+    //   isEnabled={isProduction}
+    //   isVerboseMode={true}
+    //   loadingComponent={<Loading />}
+    //   metaFileDirectory={"."}
+    // >
+    <div className="App">
+      <Todo />
+    </div>
+    // </CacheBuster>
   );
 }
 
