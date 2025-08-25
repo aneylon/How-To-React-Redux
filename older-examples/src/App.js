@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Loading from "./Components/Loading/Loading";
+import CacheBuster from "react-cache-buster";
+// import { version } from "../package.json";
+import packageFile from "../package.json";
 
 function App() {
+  const isProduction = process.env.NODE_ENV === "production";
+  const version = packageFile.version;
+  console.log(isProduction, version);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CacheBuster
+      currentVersion={version}
+      isEnabled={isProduction}
+      isVerboseMode={true}
+      loadingComponent={<Loading />}
+      metaFileDirectory={"."}
+    >
+      <div className="App">
+        <Loading />
+      </div>
+    </CacheBuster>
   );
 }
 
