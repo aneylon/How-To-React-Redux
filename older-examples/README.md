@@ -4,6 +4,10 @@
 
 [How to React - on Netlify](https://howtoreact.netlify.app/)
 
+# Resources
+
+[Cache Busting](https://www.npmjs.com/package/react-cache-buster)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
