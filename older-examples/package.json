@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm run generate-meta-tag && react-scripts build",
+    "build": "npm run generate-version-file && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate-version-file": "node ./tools/generate-version-file.js"
