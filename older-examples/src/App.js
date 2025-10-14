@@ -1,26 +1,16 @@
 import "./App.css";
 import Loading from "./Components/Loading/Loading";
-import CacheBuster from "react-cache-buster";
-import packageFile from "../package.json";
 import { Todo } from "./Components/Todo/Todo";
+import { checkUIVersion, isCurrentUiVersion } from "./api/apiUtils";
+
+console.log("app.js", checkUIVersion());
+console.log("app.js", isCurrentUiVersion());
 
 function App() {
-  const isProduction = process.env.NODE_ENV === "production";
-  const version = packageFile.version;
-  console.log(isProduction, version);
-
   return (
-    <CacheBuster
-      currentVersion={version}
-      isEnabled={isProduction}
-      isVerboseMode={true}
-      loadingComponent={<Loading />}
-      metaFileDirectory={"."}
-    >
-      <div className="App">
-        <Todo />
-      </div>
-    </CacheBuster>
+    <div className="App">
+      <Todo />
+    </div>
   );
 }
 

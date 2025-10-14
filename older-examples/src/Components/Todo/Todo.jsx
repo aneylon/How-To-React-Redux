@@ -1,6 +1,10 @@
 import { useState } from "react";
+import * as testApi from "../../api/testApi";
 
 export const Todo = () => {
+  testApi.getTodos().then((todos) => {
+    console.log({ todos });
+  });
   const [todoItems, addTodo] = useState([]);
 
   const addNewTodo = (data) => {
