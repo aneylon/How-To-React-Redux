@@ -1,0 +1,28 @@
+{
+  "blogs": [
+    {
+      "title": "one",
+      "body": "Lorem ipsum dolor sit amet.",
+      "author": "dude",
+      "id": 1
+    },
+    {
+      "title": "two",
+      "body": "amet consectetur adipisicing elit.",
+      "author": "bro",
+      "id": 2
+    },
+    {
+      "title": "three",
+      "body": "Ad facere perspiciatis cum.",
+      "author": "man",
+      "id": 3
+    },
+    {
+      "title": "four",
+      "body": "a ullam atque at quo enim illum porro!",
+      "author": "dude",
+      "id": 4
+    }
+  ]
+}
