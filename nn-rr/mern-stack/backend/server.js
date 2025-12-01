@@ -1,12 +1,35 @@
+require("dotenv").config();
+
 const express = require("express");
-const port = 4242;
+const mongoose = require("mongoose");
+
+const port = process.env.port;
+
+const workouts = require("./routes/workouts");
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.json({ msg: "hey express!" });
+app.use(express.json());
+
+// logging middleware
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
 });
 
-app.listen(port, () => {
-  console.log("listening on port : ", port);
-});
+app.use("/workouts", workouts);
+
+// app.get("/", (req, res) => {
+//   res.json({ msg: "hey express!" });
+// });
+
+mongoose
+  .connect(process.env.mongo_uri)
+  .then(() => {
+    app.listen(port, () => {
+      console.log("listening on port : ", port);
+    });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
