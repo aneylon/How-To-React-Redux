@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const port = process.env.port;
 
 const workouts = require("./routes/workouts");
+const userRoutes = require("./routes/user");
 
 const app = express();
 
@@ -17,11 +18,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/user", userRoutes);
+
 app.use("/workouts", workouts);
 
-// app.get("/", (req, res) => {
-//   res.json({ msg: "hey express!" });
-// });
+// TODO : add api interface (swagger like)
 
 mongoose
   .connect(process.env.mongo_uri)
