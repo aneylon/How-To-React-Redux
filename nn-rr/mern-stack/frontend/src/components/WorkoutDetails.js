@@ -1,10 +1,20 @@
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 const WorkoutDetails = ({ workout }) => {
+  const { user } = useAuthContext();
+
   const { dispatch } = useWorkoutsContext();
+
   const handleClick = async () => {
+    if (!user) {
+      return;
+    }
     const response = await fetch("/workouts/" + workout._id, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     const json = await response.json();
 
@@ -24,7 +34,9 @@ const WorkoutDetails = ({ workout }) => {
         <strong>Load : </strong> {workout.load}
       </p>
       <p>{workout.createdAt}</p>
-      <span onClick={handleClick}>delete</span>
+      <span className="material-symbols-outlined" onClick={handleClick}>
+        delete
+      </span>
     </div>
   );
 };
